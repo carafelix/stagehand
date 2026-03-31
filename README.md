@@ -38,7 +38,7 @@ It can be switched by changing the `speaker-layout` parameter of the `stagehand`
 The header includes current act, scene and a list of all speakers in that scene, so you can see on first glance who needs to be at the rehearsal.
 
 ### Dramatis personae
-A simple, automated Dramatis personae is generated at the beginning of the play, ordered by order of appearance.
+A simple, automated Dramatis personae is generated at the beginning of the play, sorted by order of appearance.
 
 ### Prop list
 You can mark words as "props" within the text. At the end of the document, an index of all props is printed.
