@@ -110,6 +110,18 @@
         scene-title: "Scena",
         appendix-title: "Appendice",
       )
+    } else if lang == "es" {
+      (
+        w-and: "y",
+        w-by: "por",
+        w-of: "de",
+        prop-title: "Utilería",
+        todo-title: "TODOs",
+        dramatis-personae-title: "Personajes",
+        act-title: "Acto",
+        scene-title: "Escena",
+        appendix-title: "Apéndice",
+      )
     } else if lang == "en" {
       fallback_dicionary
     } else {
