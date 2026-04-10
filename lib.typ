@@ -35,7 +35,7 @@
 }
 
 #let stagehand(
-  lang:"en",
+  lang: "en",
   title: none,
   descriptor: none,
   authors: none,
@@ -86,7 +86,7 @@
   )
 
   let primary_dictionary = {
-    if lang == "de" {
+    if lower(lang) == "de" {
       (
         w-and: "und",
         w-by: "von",
@@ -98,7 +98,7 @@
         scene-title: "Szene",
         appendix-title: "Anhang"
       )
-    } else if lang == "it" {
+    } else if lower(lang) == "it" {
       (
         w-and: "e",
         w-by: "di",
@@ -110,7 +110,7 @@
         scene-title: "Scena",
         appendix-title: "Appendice",
       )
-    } else if lang == "es" {
+    } else if lower(lang) == "es" {
       (
         w-and: "y",
         w-by: "por",
@@ -122,7 +122,7 @@
         scene-title: "Escena",
         appendix-title: "Apéndice",
       )
-    } else if lang == "en" {
+    } else if lower(lang) == "en" {
       fallback_dicionary
     } else {
       fallback_dicionary
