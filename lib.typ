@@ -78,7 +78,7 @@
     )
   }
 
-  show <_stage-direction>: set text(stage-direction-color)
+  show <_stage-direction>: set text(style: "italic", stage-direction-color)
 
   let fallback_dicionary = (
     w-and: "and",
