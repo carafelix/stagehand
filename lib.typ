@@ -66,6 +66,10 @@
   assert(
     type(custom-localization) == dictionary or custom-localization == none,
     message: "A custom localization must be a dictionary or 'none'")
+  assert(
+    type(stage-direction-color) == color,
+    message: "Stage direction color must be of type 'color' "
+  )
 
   let title-case(string) = {
     return string.replace(
