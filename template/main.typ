@@ -16,6 +16,7 @@
   speaker-function: smallcaps,
   break-size: 900,
   parentheses-mean-stage-directions: true,
+  stage-direction-color: gray,
   has-header:true,
   has-footer: true,
   speakers-in-header: true,

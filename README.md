@@ -19,7 +19,7 @@ I recommend setting aliases for recurring characters, and to use shorter, altern
 Alternatively, add this to the start of your typst file:
 ```typ
 #import "@preview/stagehand:0.1.0":*
-#show: theatre
+#show: stagehand
 ```
 
 ## Features
@@ -78,7 +78,7 @@ Marks text as a TODO note. It will be brightly colored, and will be listed and l
 You can adjust the `stagehand` function using the `with` function, as seen in the template. These are the possible parameters:
 |Parameter name|Possible values|Default value|Description|
 |---|---|---|---|
-|lang|language code|"en"|Sets the document's language, which affects things like quotes and hyphenation. If set to "en", "de" or "it", it also localizes strings from this package, like the names for "Act" or "Props". Falls back to english.|
+|lang|language code|"en"|Sets the document's language, which affects things like quotes and hyphenation. If set to "en", "de", "es" or "it", it also localizes strings from this package, like the names for "Act" or "Props". Falls back to english.|
 |title|none/string|none|The title on the title page, and the title of pdf|
 |descriptor|none/string|none|The descriptor on the title page|
 |author|none/string/array(author)|none|The author(s) on the title page. If title, desciptor and author are all `none`, the title page will not be created.|
@@ -92,6 +92,7 @@ You can adjust the `stagehand` function using the `with` function, as seen in th
 |speaker-function|function|smallcaps|Which function to use on character names. You could, for example, use `upper` to transform all characters to capital letters.|
 |break-size|int|900|After how many characters a paragraph should be allowed to split at a page break. Paragraphs below this limit will always stay together.|
 |parentheses-mean-stage-directions|boolean|true|If true, using round parentheses in markup mode will mark text as an inline stage direction.|
+|stage-direction-color|color|gray|The text color of stage directions|
 |has-header|boolean|true|Whether to create a header on each page|
 |has-footer|boolean|true|Whether to create a footer on each page|
 |speakers-in-header|boolean|true|Whether to add the names of speakers to the header|
@@ -104,6 +105,7 @@ Dictionaries like this can be added for custom localization strings:
 (
     w-and: "and",
     w-by: "by",
+    w-of: "of",
     prop-title: "Props",
     todo-title: "TODOs",
     dramatis-personae-title: "Dramatis Personae",
