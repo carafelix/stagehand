@@ -216,6 +216,7 @@
                       query(selector(<tagged_speaker>)
                         .after(start_scene.location())
                         .before(end_scene.location()))
+                        .map(s => s.value.t)
                         .flatten()
                         .map(s => to-string(s))
                         .dedup().join(", ")
