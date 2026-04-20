@@ -369,8 +369,8 @@
       if key in acc {
         let existing = acc.at(key)
 
-        if existing.s_d == none or existing.s_d == "" {
-          if s.s_d != none and s.s_d != "" {
+        if existing.s_desc == none or existing.s_descesc == "" {
+          if s.s_desc != none and s.s_desc != "" {
             acc.insert(key, s)
           }
         }
@@ -387,7 +387,7 @@
           \
           #list(..roles.map((s) =>
                 [
-                  #s.t.join(", ") #box(width: 1fr, inset: 0pt)[#repeat[.]] #s.s_d
+                  #s.t.join(", ") #box(width: 1fr, inset: 0pt)[#repeat[.]] #s.s_desc
                 ]
           ))
         ]
@@ -476,7 +476,7 @@
 
 
 
-#let speaker(name, p: none, t: auto, s_d: none) = {
+#let speaker(name, p: none, t: auto, s_desc: none) = {
   if t != false {
     if t == auto {
       t = name
@@ -497,7 +497,7 @@
   }
   [
     #name<speaker>
-    #if t != false [#metadata((t: t, s_d: s_d))<tagged_speaker>]
+    #if t != false [#metadata((t: t, s_desc: s_desc))<tagged_speaker>]
     #if(p != none) [
         #p<parenthetical>
     ]
