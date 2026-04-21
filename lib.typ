@@ -34,6 +34,14 @@
   }
 }
 
+#let longest-speaker() = {
+  query(selector(<speaker>))
+    .map(s => to-string(s))
+    .fold("", (longest, current) =>
+      if current.len() > longest.len() { current } else { longest }
+    )
+}
+
 #let stagehand(
   lang: "en",
   title: none,
@@ -279,17 +287,10 @@
         )
       ]
     } else if speaker-layout == "concise"{
-      let longest_speaker = query(selector(<speaker>))
-                          .map(s => to-string(s))
-                          .fold("", (longest_speaker, current) =>
-                            if current.len() > longest_speaker.len() { current } else { longest_speaker }
-                          )
 
       let indent-width = measure(
-        speaker-function[#longest_speaker:]
-      ).width - measure(
-        speaker-function[
-        #it:]
+        speaker-function[#longest-speaker():]
+      ).width - measure(speaker-function[#it:]
       ).width - measure([:]).width
 
       speaker-function[
@@ -444,14 +445,9 @@
   [#v(0pt)<start_of_play>]
 
   context {
-      let longest_speaker = query(selector(<speaker>))
-                          .map(s => to-string(s))
-                          .fold("", (longest_speaker, current) =>
-                            if current.len() > longest_speaker.len() { current } else { longest_speaker }
-                          )
-
+      
     let indent-width = measure(
-      speaker-function[#longest_speaker:]
+      speaker-function[#longest-speaker():]
     ).width + 1em
     
     set par(
