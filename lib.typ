@@ -47,6 +47,8 @@
   title: none,
   descriptor: none,
   authors: none,
+  version: none,
+
   font: "Libertinus Serif",
   font-size: 14pt,
   toc: true,
@@ -93,6 +95,7 @@
     w-and: "and",
     w-by: "by",
     w-of: "of",
+    version: "Version",
     prop-title: "Props",
     todo-title: "TODOs",
     dramatis-personae-title: "Dramatis Personae",
@@ -107,6 +110,7 @@
         w-and: "und",
         w-by: "von",
         w-of: "von",
+        version: "Fassung",
         prop-title: "Requisiten",
         todo-title: "TODOs",
         dramatis-personae-title: "Figuren",
@@ -119,6 +123,7 @@
         w-and: "e",
         w-by: "di",
         w-of: "di",
+        version: "Versione",
         prop-title: "Oggetti di scena",
         todo-title: "TODOs",
         dramatis-personae-title: "Personaggi",
@@ -131,6 +136,7 @@
         w-and: "y",
         w-by: "por",
         w-of: "de",
+        version: "Versión",
         prop-title: "Utilería",
         todo-title: "TODOs",
         dramatis-personae-title: "Personajes",
@@ -354,6 +360,13 @@
                 authors.join(", ", last: [ #localization("w-and") ])
               }
             ]
+          }
+
+          if (version != none){
+            place(
+              bottom + right,
+              [#primary_dictionary.version: #version]
+            )
           }
         }
       ]
