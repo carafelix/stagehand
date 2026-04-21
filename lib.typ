@@ -3,7 +3,7 @@
     align(center, box(width: 70%)[
       #block(spacing: (0.0em))[
         #align(left)[
-          #par(justify: true, spacing: 0.0em)[
+          #par(justify: true, spacing: 0.0em, hanging-indent: 0em)[
             #body #label("_stage-direction")
             ]
           ]
@@ -279,9 +279,22 @@
         )
       ]
     } else if speaker-layout == "concise"{
+      let longest_speaker = query(selector(<speaker>))
+                          .map(s => to-string(s))
+                          .fold("", (longest_speaker, current) =>
+                            if current.len() > longest_speaker.len() { current } else { longest_speaker }
+                          )
+
+      let indent-width = measure(
+        speaker-function[#longest_speaker:]
+      ).width - measure(
+        speaker-function[
+        #it:]
+      ).width - measure([:]).width
+
       speaker-function[
 
-        #it:]
+        #it:#h(indent-width + 1em)]
     }
   }
 
@@ -429,7 +442,26 @@
   }
 
   [#v(0pt)<start_of_play>]
-  play
+
+  context {
+      let longest_speaker = query(selector(<speaker>))
+                          .map(s => to-string(s))
+                          .fold("", (longest_speaker, current) =>
+                            if current.len() > longest_speaker.len() { current } else { longest_speaker }
+                          )
+
+    let indent-width = measure(
+      speaker-function[#longest_speaker:]
+    ).width + 1em
+    
+    set par(
+      justify: true,
+      linebreaks: "optimized",
+      hanging-indent: if speaker-layout == "concise" { indent-width } else { 0em },
+    )
+
+    play
+  }
 
   [#v(0pt)<end_of_play>]
   set page(header: none, footer: none)
