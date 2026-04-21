@@ -396,7 +396,7 @@
       if key in acc {
         let existing = acc.at(key)
 
-        if existing.s_desc == none or existing.s_descesc == "" {
+        if existing.s_desc == none or existing.s_desc == "" {
           if s.s_desc != none and s.s_desc != "" {
             acc.insert(key, s)
           }
