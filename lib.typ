@@ -209,7 +209,7 @@
             if speakers-in-header {
               pad(bottom:-8pt,
                 align(center + top,
-                  par(justify: false,
+                  par(justify: false, hanging-indent: 0em,
                     text(size: 11pt, hyphenate:false, {
                       let end_scene
                       let start_scene
